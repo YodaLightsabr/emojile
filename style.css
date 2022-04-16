@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
+
+body {
+	background: black;
+	color: white;
+	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji", 'Arimo', sans-serif;
+}
+
+.bolded {
+	color: white;
+}
+
+h1, h4 {
+ text-align: center;
+padding-bottom: 0;
+	color: #c9c9c9;
+}
+
+h4 {
+	font-weight: 400;
+}
+
+#game-board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.letter-box {
+  border: 2px solid rgb(58, 58, 60);
+	background-color:  rgb(58, 58, 60);
+  border-radius: 3px;
+  margin: 3px;
+  font-size: 2.3rem;
+  font-weight: 700;
+  height: 3.3rem;
+  width: 3.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+    
+
+}
+.letter-box.typed-in-active {
+    animation: play .1s steps(10) forwards;
+  border: 2px solid rgb(93, 93, 96);
+
+}
+.letter-box.complete {
+  transform-style: preserve-3d;
+    animation: flip2 .5s forwards!important;
+}
+@keyframes play {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    40% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+}
+@keyframes flip2 {
+    
+    0% {
+      transform: rotateX(0);
+    }
+    50% {
+      transform: rotateX(-90deg);
+    }
+    99% {
+      transform: rotateX(0);
+    }
+}
+
+
+@media (max-width: 700px) {
+	.letter-box {
+		height: 1.5rem;
+		width: 1.5rem;
+        font-size: 1.2rem;
+	}
+}
+
+.filled-box {
+  border: 2px solid #1a1a1a;
+}
+
+.letter-row {
+  display: flex;
+    position: relative;
+}
+
+.letter-row::before {
+    content: ':';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    font-size: 3em;
+}
+
+.letter-row::after {
+    content: ':';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    font-size: 3em;
+}
+
+#keyboard, #keyboard *, #game-board, #game-board * {
+          -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+	font-family: 'Arimo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji", sans-serif;
+
+}
+
+#keyboard {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#keyboard div {
+  display: flex;
+}
+
+.row {
+  margin: 0.3rem 0;
+}
+
+.key {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.7rem;
+	background-color: rgb(58, 58, 60);
+	color: white;
+	border: none;
+	border-radius: 6px;
+  margin: 0 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.watermark {
+position: fixed;
+color: black;
+background-color: white;
+right: 10px;
+bottom: 10px;
+padding: 2px 7px;
+border: 1px solid white;
+border-radius: 5px;
+font-size: 12px;
+line-height: 24px;
+text-decoration: none;
+font-weight: 500;
+	}
+
+#button-container {
+    display: none;
+}
+#button-container.show {
+    display: block;
+}
+
+button.copy {
+    border-radius: 12px;
+    background-color: rgb(21, 128, 61);
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button.copy:hover {
+    background-color: rgb(27, 165, 80);
+}
