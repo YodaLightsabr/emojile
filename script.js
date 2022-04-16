@@ -252,7 +252,7 @@ function check () {
 wordle();
 
 function generateScore () {
-    let output = `Emojile ${puzzleNumber} ${guessesList.length > guesses ? 'X' : guessesList.length}/${guesses}\n`
+    let output = `Slack Emojile ${puzzleNumber} ${guessesList.length > guesses ? 'X' : guessesList.length}/${guesses}\n`
     output += guessesList.map(g => {
         return `:${g.split('').map((char, i) => {
             if (correctWord[i] == char) return '🟩';
