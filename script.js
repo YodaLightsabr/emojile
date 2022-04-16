@@ -15,6 +15,7 @@ function getNumber () {
 let completed = false;
 const puzzleNumber = getNumber();
 let correctWord = words[puzzleNumber - 1];
+document.body.setAttribute('data-word-length', correctWord.length);
 let currentGuess = [];
 let guessesList = [];
 let next = 0;
@@ -86,7 +87,7 @@ function wordle () {
 
         let letterPosition = rightGuess.indexOf(guessString[j]);
         if (letterPosition === -1) {
-            coloring = '#1a1a1a';
+            coloring = '#3a3a3c';
         }
         else if (guessString[j] === rightGuess[j]) coloring = '#628b55';
         else coloring = '#fcba03';
@@ -97,6 +98,9 @@ function wordle () {
             box.classList.remove('typed-in-active');
             box.classList.add('complete');
             box.style.backgroundColor = coloring;
+            setTimeout(() => {
+                box.classList.add('half');
+            }, 250);
         }, 150 * j + i * 150);
         
             keyboard(letter, coloring);
@@ -207,7 +211,7 @@ function check () {
 
         let letterPosition = rightGuess.indexOf(currentGuess[i]);
         if (letterPosition === -1) {
-            coloring = '#1a1a1a';
+            coloring = '#3a3a3c';
         }
         else if (currentGuess[i] === rightGuess[i]) coloring = '#628b55';
         else coloring = '#fcba03';
@@ -218,7 +222,10 @@ function check () {
             box.classList.remove('typed-in-active');
             box.classList.add('complete');
             box.style.backgroundColor = coloring;
-        }, 150 * i);
+            setTimeout(() => {
+                box.classList.add('half');
+            }, 100);
+        }, 250 * i);
         
         setTimeout(() => {
             keyboard(letter, coloring);

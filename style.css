@@ -2,7 +2,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
 
 body {
-	background: black;
+	background: rgb(18, 18, 19);
 	color: white;
 	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji", 'Arimo', sans-serif;
 }
@@ -28,14 +28,13 @@ h4 {
 }
 
 .letter-box {
-  border: 2px solid rgb(58, 58, 60);
-	background-color:  rgb(58, 58, 60);
-  border-radius: 3px;
+  border: 2px solid #3a3a3c;
+	/* background-color:  rgb(58, 58, 60); */
   margin: 3px;
-  font-size: 2.3rem;
+  font-size: 2rem;
   font-weight: 700;
-  height: 3.3rem;
-  width: 3.3rem;
+  height: 3.875rem;
+  width: 3.875rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,12 +44,20 @@ h4 {
 }
 .letter-box.typed-in-active {
     animation: play .1s steps(10) forwards;
-  border: 2px solid rgb(93, 93, 96);
+  border: 2px solid #565758;
 
 }
 .letter-box.complete {
   transform-style: preserve-3d;
-    animation: flip2 .5s forwards!important;
+  animation-name: FlipOut;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+  border: 2px solid transparent;
+}
+.letter-box.complete.half {
+  animation-name: FlipOut;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
 }
 @keyframes play {
     from {
@@ -63,15 +70,19 @@ h4 {
       opacity: 1;
     }
 }
-@keyframes flip2 {
-    
+@keyframes FlipIn {
     0% {
       transform: rotateX(0);
     }
-    50% {
+    100% {
       transform: rotateX(-90deg);
     }
-    99% {
+}
+@keyframes FlipOut {
+    0% {
+      transform: rotateX(-90deg);
+    }
+    100% {
       transform: rotateX(0);
     }
 }
@@ -79,11 +90,44 @@ h4 {
 
 @media (max-width: 700px) {
 	.letter-box {
-		height: 1.5rem;
-		width: 1.5rem;
-        font-size: 1.2rem;
+		height: calc( calc( 100vw - 100px ) / var(--x) - 5px );
+		width: calc( calc( 100vw - 100px ) / var(--x) - 5px );
+    max-width: 3.875rem;
+    max-height: 3.875rem;
+		/* width: 1.5rem; */
+        font-size: min(calc( calc( calc( 100vw - 100px ) / var(--x) - 5px ) / 2 ), 2rem);
 	}
 }
+
+
+[data-word-length="1"] { --x: 1; }
+[data-word-length="2"] { --x: 2; }
+[data-word-length="3"] { --x: 3; }
+[data-word-length="4"] { --x: 4; }
+[data-word-length="5"] { --x: 5; }
+[data-word-length="6"] { --x: 6; }
+[data-word-length="7"] { --x: 7; }
+[data-word-length="8"] { --x: 8; }
+[data-word-length="9"] { --x: 9; }
+[data-word-length="10"] { --x: 10; }
+[data-word-length="11"] { --x: 11; }
+[data-word-length="12"] { --x: 12; }
+[data-word-length="13"] { --x: 13; }
+[data-word-length="14"] { --x: 14; }
+[data-word-length="15"] { --x: 15; }
+[data-word-length="16"] { --x: 16; }
+[data-word-length="17"] { --x: 17; }
+[data-word-length="18"] { --x: 18; }
+[data-word-length="19"] { --x: 19; }
+[data-word-length="20"] { --x: 20; }
+[data-word-length="21"] { --x: 21; }
+[data-word-length="22"] { --x: 22; }
+[data-word-length="23"] { --x: 23; }
+[data-word-length="24"] { --x: 24; }
+[data-word-length="25"] { --x: 25; }
+[data-word-length="26"] { --x: 26; }
+[data-word-length="27"] { --x: 27; }
+
 
 .filled-box {
   border: 2px solid #1a1a1a;
